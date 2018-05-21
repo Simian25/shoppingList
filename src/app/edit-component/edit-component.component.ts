@@ -11,6 +11,7 @@ export class EditComponentComponent implements OnInit {
 
 
   addToList(name: HTMLInputElement, amount: HTMLInputElement) {
+    // tslint:disable-next-line:radix
     this.event.emit({name: name.value, amount:  parseInt(amount.value) });
   }
   constructor() { }
