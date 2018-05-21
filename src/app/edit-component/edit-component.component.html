@@ -1,0 +1,22 @@
+<div *ngIf='edit'>
+  <h2>{{ edit.name | uppercase }} Details</h2>
+  <div>
+    <label>naam:
+      <input [(ngModel)]="edit.name" placeholder="Naam" />
+    </label>
+    <label>Hoeveelheid
+      <input [(ngModel)]="edit.amount" placeholder="Hoeveelheid">
+    </label>
+  </div>
+
+</div>
+<div>
+  <h2>Nieuw Item</h2>
+  <label>naam:
+    <input placeholder="Naam" #inputName/>
+  </label>
+  <label>Hoeveelheid
+    <input placeholder="Hoeveelheid" #inputAmount>
+  </label>
+  <button (click)='addToList(inputName, inputAmount)' class="btn btn-primary">Add to list</button>
+</div>

@@ -1,0 +1,15 @@
+<p></p>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-4">
+      <app-edit-component [edit]='selectedItem' (event)="setList($event)"></app-edit-component>
+    </div>
+    <div class="col-4">
+      <div class="row" *ngFor='let item of items'>
+        <div class='col-md-12' [class.active]="item === selectedItem" (click)='setActive(item)'>
+          <app-item-component [item]='item'></app-item-component>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
