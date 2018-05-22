@@ -1,5 +1,5 @@
 <div *ngIf='edit'>
-  <h2>{{ edit.name | uppercase }} Details</h2>
+  <h4>{{ edit.name | uppercase }} Details</h4>
   <div>
     <label>naam:
       <input [(ngModel)]="edit.name" placeholder="Naam" />
@@ -19,4 +19,10 @@
     <input placeholder="Hoeveelheid" #inputAmount>
   </label>
   <button (click)='addToList(inputName, inputAmount)' class="btn btn-primary">Add to list</button>
+  <div *ngIf="error == 'duplicate'">
+      <span class="badge badge-warning"><h6>Warning: Item already exists <i class="fa fa-close" aria-hidden="true" (click)='closeError()'></i></h6></span>
+  </div>
+  <div *ngIf="error == 'type'">
+      <span class="badge badge-warning"><h6>Warning: Please fill in all fields <i class="fa fa-close" aria-hidden="true" (click)='closeError()'></i></h6></span>
+  </div>
 </div>

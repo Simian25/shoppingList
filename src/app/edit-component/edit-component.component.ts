@@ -7,12 +7,20 @@ import {  Item } from '../item-class';
 })
 export class EditComponentComponent implements OnInit {
   @Input() edit: Item;
+  @Input() error: String = '';
   @Output() event: EventEmitter<Item> = new EventEmitter;
 
 
   addToList(name: HTMLInputElement, amount: HTMLInputElement) {
-    // tslint:disable-next-line:radix
-    this.event.emit({name: name.value, amount:  parseInt(amount.value) });
+    if (typeof name.value === 'string' && !isNaN(parseInt(amount.value))) {
+      this.event.emit({name: name.value, amount:  parseInt(amount.value) });
+    } else {
+      this.error = 'type';
+    }
+  }
+  closeError() {
+    console.log(this.error);
+    this.error = '';
   }
   constructor() { }
 
