@@ -14,7 +14,7 @@ export class ListComponentComponent implements OnInit {
   newItem: Item;
   error: String;
   @ViewChild(EditComponentComponent) private EditComponentComponent: EditComponentComponent;
-  
+
   setActive(item: Item) {
     this.selectedItem = item;
   }
@@ -43,6 +43,7 @@ export class ListComponentComponent implements OnInit {
   resetList() {
     localStorage.removeItem('itemList');
     this.items = LIST;
+    location.reload();
   }
 
   constructor() {
